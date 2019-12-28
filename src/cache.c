@@ -134,7 +134,6 @@ void metal_dcache_l1_flush(int hartid, uintptr_t address) {
         // Using ‘.insn’ pseudo directive: '.insn i opcode, func3, rd, rs1,
         // simm12'
         __asm__ __volatile__(".insn i 0x73, 0, x0, %0, -0x40" : : "r"(address));
-        __asm__ __volatile__("fence.i"); // FENCE
     }
 }
 
@@ -161,7 +160,6 @@ void metal_dcache_l1_discard(int hartid, uintptr_t address) {
         // Using ‘.insn’ pseudo directive: '.insn i opcode, func3, rd, rs1,
         // simm12'
         __asm__ __volatile__(".insn i 0x73, 0, x0, %0, -0x3E" : : "r"(address));
-        __asm__ __volatile__("fence.i"); // FENCE
     }
 }
 
