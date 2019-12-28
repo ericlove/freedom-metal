@@ -93,7 +93,7 @@ struct metal_interrupt_vtable {
     int (*interrupt_set_priority)(struct metal_interrupt *controller, int id,
                                   unsigned int priority);
     unsigned int (*interrupt_get_preemptive_level)(struct metal_interrupt *controller,
-                                                   unsigned int priority);
+                                                   int id);
     int (*interrupt_set_preemptive_level)(struct metal_interrupt *controller, int id,
                                           unsigned int level, unsigned int priority);
     int (*command_request)(struct metal_interrupt *controller, int cmd,
